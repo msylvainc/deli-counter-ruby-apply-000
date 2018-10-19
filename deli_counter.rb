@@ -1,21 +1,31 @@
-katz_deli = []
+katz_deli = ["Logan", "Avi", "Spencer"]
 
-take_a_number(katz_deli, "Logan") #=> Welcome, Logan. You are number 1 in line.
-take_a_number(katz_deli, "Avi") #=> Welcome, Avi. You are number 2 in line.
-take_a_number(katz_deli, "Spencer") #=> Welcome, Spencer. You are number 3 in line.
+def take_a_number(katz_deli, name)
+  katz_deli << name
+  puts "Welcome, #{name}. You are number #{katz_deli.length} in line."
+end
 
-take_a_number(katz_deli, "Grace") #=> Welcome, Avi. You are number 4 in line.
+def now_serving(katz_deli)
+  if katz_deli.length == 0
+    puts "There is nobody waiting to be served!"
+  else
+    puts "Currently serving #{katz_deli.shift}."
+  end
 
-line(katz_deli) #=> "The line is currently: 1. Logan 2. Avi 3. Spencer 4. Grace"
+end
 
-now_serving(katz_deli) #=> "Currently serving Logan."
+def line(katz_deli)
+  if katz_deli.length == 0
+    puts "The line is currently empty."
+  else
+    message="The line is currently:"
 
-line(katz_deli) #=> "The line is currently: 1. Avi 2. Spencer 3. Grace"
+    katz_deli.each_with_index do |value, index|
+      message += " #{index.to_i+1}. #{value}"
+    end
 
-take_a_number(katz_deli, "Amanda") #=> Welcome, Amanda. You are number 4 in line.
+    puts "#{message}"
+  end
 
-line(katz_deli) #=> "The line is currently: 1. Avi 2. Spencer 3. Grace 4. Amanda"
 
-now_serving(katz_deli) #=> "Currently serving Avi."
-
-line(katz_deli) #=> "The line is currently: 1. Spencer 2. Grace 3. Amanda"
+end

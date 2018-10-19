@@ -48,10 +48,10 @@ describe 'Deli Counter' do
 
     context "adding multiple people in a row" do
       it "should correctly build the line" do
-        take_a_number(katz_deli, "Ada")
-        take_a_number(katz_deli, "Grace")
-        take_a_number(katz_deli, "Kent")
-        expect(katz_deli).to eq(%w(Ada Grace Kent))
+        take_a_number(katz_deli, "Logan")
+        take_a_number(katz_deli, "Avi")
+        take_a_number(katz_deli, "Spencer")
+        expect(katz_deli).to eq(%w(Logan Avi Spencer))
       end
     end
   end
